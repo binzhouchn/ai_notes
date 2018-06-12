@@ -1,2 +1,2 @@
 # ai_notes
-nlp and kg learning
+NLP and KG learning
