@@ -29,14 +29,15 @@ http://blog.csdn.net/baimafujinji/article/details/51281816
 
 [关键词提取详细笔记](公共模块/keyword_extraction.md)
 
-## 4. MI 互信息
+## 4. 信息熵
 
+## 5. Word Vectors
 
-## 5. word2vec， gensim（蚂蚁笔记），
-对于CBOW和Skip-Gram两个模型，word2vec给出了两套框架，用Hierarchical Softmax和negative sampling来进行优化（使用的数据结构是霍夫曼树）
+ - Word2Vec
+ - GolVe
+ - FastText
 
-参考网址：http://blog.csdn.net/a819825294/article/details/52438625
-参考网址2：http://www.cnblogs.com/pinard/p/7243513.html
+[Word Vectors详细笔记](公共模块/wv.md)
 
 # nlp开源工具
 

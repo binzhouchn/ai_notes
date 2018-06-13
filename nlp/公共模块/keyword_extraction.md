@@ -17,6 +17,7 @@ idf = log (n / docs (w, D))
 ```
 改进方案：改写tfidf加入词性和专业词权重
 ```
+http://blog.csdn.net/sangyongjia/article/details/52440063
 
 ## 2. topic-model(LDA)
 
