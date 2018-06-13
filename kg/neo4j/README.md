@@ -34,6 +34,7 @@
 ---
 **CQL常见的操作**
 ### 创建节点
+```
 1)创建节点：
 create (e:Customer{id:'1001',name:'Bob',dob:'01/10/1982'})
 create (cc:CreditCard{id:'5001',number:'1234567890',cvv:'888',expiredate:'20/17'})
@@ -47,10 +48,11 @@ merge(:Shop{name:df.name,cn_name:df.cn_name,age:df.age,sex:df.age})
  - Importing large amounts of data
  比如 USING PERIODIC COMMIT 500
       load csv with headers from "file:///shop.csv" as df
-
+```
 ----------
 
 ### 创建关系1
+```
 创建两个节点之间的关系:
 match(e:Customer),(cc:CreditCard)
 create (e)-[r:DO_SHOPPING_WITH]->(cc)
@@ -58,8 +60,9 @@ create (e)-[r:DO_SHOPPING_WITH]->(cc)
 创建两个节点之间的关系(加边属性):
 match(e:Customer),(cc:CreditCard)
 create (e)-[r:DO_SHOPPING_WITH{shopdate:'12/12/2014',price:6666}]->(cc)
-
+```
 ### 创建关系2
+```
 根据两个节点之间的相同属性进行连接1：
 match(c:Customer),(p:Phone)
 where c.phone = p.phone_no
@@ -70,8 +73,9 @@ match(a:Test),(b:Test22)
 where  b.ide in a.name
 create (a)-[:sssssssssss]->(b)
 这里的a.name是个list
-
+```
 ### 创建关系3
+
 各自创建节点比如shop和phone两个节点，然后导入一个关系的csv文件进行连接
 
 **shop.csv**
@@ -97,13 +101,15 @@ create (a)-[:sssssssssss]->(b)
 |Lily|3432
 |John|9011
 |Mark|3432
+
+```
 cypher关系语句：
 load csv with headers from "file:///test.csv" as df
 match(a:Shop{name:df.name}),(b:Phone{phone:df.phone})
 create (a)-[:Call{phone_id:df.id_p}]->(b)
 
 *注：neo4j中不能创建双向或者无向的关系，只能单向*
-
+```
 ### 匹配
 
 三层关系：
