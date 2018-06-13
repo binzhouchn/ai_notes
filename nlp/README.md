@@ -2,7 +2,16 @@
 
 # nlp笔记
 
-1. N-Gram:简单的马尔科夫链
+1. 文本相似度衡量距离
+ - 余弦相似性（cosine similarity） 
+ - 编辑距离（edit distance） 
+ - WMD距离（word mover’s distance） 
+ - 杰卡顿距离（Jaccard distance） 
+ - Dice 距离（Dice distance）
+
+[文本相似度详细笔记](公共模块/sim_text.md)
+
+2. N-Gram:简单的马尔科夫链
 
 bigram:一个词的出现仅依赖于它前面出现的一个词
 P(w1,w2...wm) = 连乘P(wi|wi-1)
@@ -12,16 +21,16 @@ ngram的应用：搜索，输入法联想，文本自动生成
 
 http://blog.csdn.net/baimafujinji/article/details/51281816
 
-2. TF-IDF
+3. TF-IDF
 
 根据词频来确定词的重要性不是很科学，比如你，她，好的等这种词频在每篇文章中肯定较高，通过tf-idf算法,idf相当于对词频进行了一个权重调整，过滤掉常见的词语，保留重要的词语。
 
 http://blog.csdn.net/sangyongjia/article/details/52440063
 
-3. MI 互信息
+4. MI 互信息
 
 
-4. word2vec， gensim（蚂蚁笔记），
+5. word2vec， gensim（蚂蚁笔记），
 对于CBOW和Skip-Gram两个模型，word2vec给出了两套框架，用Hierarchical Softmax和negative sampling来进行优化（使用的数据结构是霍夫曼树）
 
 参考网址：http://blog.csdn.net/a819825294/article/details/52438625
