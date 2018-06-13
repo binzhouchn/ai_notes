@@ -21,11 +21,13 @@ ngram的应用：搜索，输入法联想，文本自动生成
 
 http://blog.csdn.net/baimafujinji/article/details/51281816
 
-3. TF-IDF
+3. 关键词提取主要算法
 
-根据词频来确定词的重要性不是很科学，比如你，她，好的等这种词频在每篇文章中肯定较高，通过tf-idf算法,idf相当于对词频进行了一个权重调整，过滤掉常见的词语，保留重要的词语。
+ - tfidf
+ - topic-model(LDA)
+ - textrank关键词提取
 
-http://blog.csdn.net/sangyongjia/article/details/52440063
+[关键词提取详细笔记]()
 
 4. MI 互信息
 
