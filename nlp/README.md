@@ -27,7 +27,7 @@ http://blog.csdn.net/baimafujinji/article/details/51281816
  - topic-model(LDA)
  - textrank关键词提取
 
-[关键词提取详细笔记]()
+[关键词提取详细笔记](公共模块/keyword_extraction.md)
 
 4. MI 互信息
 
