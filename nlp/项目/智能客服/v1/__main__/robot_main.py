@@ -1,7 +1,8 @@
-# -*- coding:utf-8 -*-  
-__author__ = 'binzhou'
-__version__ = '20180608'
-
+"""
+__title__ = '__init__.py'
+__author__ = 'Zhoubin'
+__mtime__ = '2018/6/8'
+"""
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot.sn_utils import *
@@ -10,9 +11,10 @@ from flask import Flask
 from flask import request
 from flask import make_response,Response
 from flask import jsonify
-from chatterbot.sn_com.robot_init import logger_robot
+from sn_com.robot_init import *
+import datetime
 
-logging.basicConfig(level=logging.INFO)
+# logging.basicConfig(level=logging.INFO)
 
 # 抛出flask异常类
 class CustomFlaskErr(Exception):
@@ -21,7 +23,7 @@ class CustomFlaskErr(Exception):
     def __init__(self, responseCode=None):
         Exception.__init__(self)
         self.responseCode = responseCode
-        self.J_MSG = {303: '参数不合法',909:'系统内部异常'}
+        self.J_MSG = {9704: '参数不合法',9999:'系统内部异常'}
 
     # 构造要返回的错误代码和错误信息的 dict
     def get_dict(self):
@@ -53,21 +55,24 @@ class HelloChat():
                                ],
                                input_adapter='chatterbot.input.SN_TerminalAdapter',
                                output_adapter='chatterbot.output.SN_TerminalAdapter',
-                               database='./database.sqlite3', # 默认用sqlite3
+                               database='./chatterbot_data/database.sqlite3',
                                read_only=True
                                )
         ## 已经在自己修改的logic中训练了加入内存了；如果走机器人默认的则需要把注释去掉
         # self.chatbot.set_trainer(ChatterBotCorpusTrainer)
-        # self.chatbot.train('./领域问答.yml')
+        # self.chatbot.train('C:/Users/16121360/Desktop/chatterboot/chatterbot/sn_data/sn_ori_data/finance.yml')
 
-    def get_response(self, info):
+    def get_response(self, info,source):
         print("info:", info)
-        return self.chatbot.sn_get_response(info)
+        return self.chatbot.sn_get_response(info,source)
 
 if __name__ == '__main__':
+    
     chat = HelloChat()
 
     app = Flask(__name__)
+	app.config['JSON_AS_ASCII'] = False
+
     @app.route('/')
     def get_simple_test():
         return 'BINZHOU TEST'
@@ -76,14 +81,15 @@ if __name__ == '__main__':
     def req_message():
         if request.method == 'POST':
             receive_dict = sn_receive(request.form)
+            logger_robot.debug("接收报文时间：{}".format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')))
             logger_robot.info('接收报文：{}'.format(receive_dict))
             if not sn_get_flag(receive_dict):
-                logger_robot.info('参数不合法：{}'.format(303))
-                raise CustomFlaskErr(responseCode=303)
+                logger_robot.info('参数不合法：{}'.format(9704))
+                raise CustomFlaskErr(responseCode=9704)
             bot_answer = chat.get_response(request, receive_dict['source'])
             if 'err_code' in bot_answer.keys():
-                logger_robot.info('系统内部异常：{}'.format(909))
-                raise CustomFlaskErr(responseCode=909)
+                logger_robot.info('系统内部异常：{}'.format(9999))
+                raise CustomFlaskErr(responseCode=9999)
             result = sn_result(receive_dict, bot_answer)
             logger_robot.info('发送报文：{}'.format(result))
             return jsonify(result)
@@ -94,5 +100,6 @@ if __name__ == '__main__':
         response = jsonify(error.get_dict())
         response.responseCode = error.responseCode
         return response
-    app.run()
+    app.run(threaded=True,host='0.0.0.0',
+port=5000)
 
