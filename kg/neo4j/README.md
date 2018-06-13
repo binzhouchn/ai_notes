@@ -111,25 +111,29 @@ create (a)-[:Call{phone_id:df.id_p}]->(b)
 *注：neo4j中不能创建双向或者无向的关系，只能单向*
 ```
 ### 匹配
-
+```
 三层关系：
 match (n:企业)-[k*1..3]-(m) return n.company_nm
-
+```
 ### 返回
+```
 match(e:Customer),(cc:CreditCard)
 return e.name,cc.cvv
-
+```
 ### 哪里
+```
 match(n:Customer), (cc:CreditCard)
 where n.name = 'Lily' and cc.id = '5001'
 create (n)-[r:DO_SHOPPING_WITH{shopdate:'1/1/9999', price:100}]->(cc)
 
-正则使用：
+\正则使用：
 match(n:Person)
 where n.name =~ '(?i)^[a-d].*'
 return n
+```
 
 ### 删除
+```
 删除所有的节点和关系
 match(n) match(n)-[r]-() delete n,r
 
@@ -138,13 +142,15 @@ match(cc:Customer)
 *detach* delete cc
 或者
 match(cc:Customer) match(cc)-[r]-() delete cc,r
-
+```
 ### 移除
+```
 可以移除节点的属性
 match(n:Customer) where n.name = 'Lily'
 remove n.dob
-
+```
 ### 设置
+```
 可以设置节点的属性(增加或者改写)
 match(n:Customer) where n.name = 'Bob'
 SET n.id = 1003
@@ -156,6 +162,7 @@ create(:Person{cd:'92223',xx:'iir'})
 create(:Person{cd:'6783',xx:'rrrr'})
 create(:Person{cd:'555903',xx:'ppppppppppr'})
 **--test.csv:** (注:导入csv的时候会把所有的转成string格式)
+```
 
 |col_one|col_two|col_three
 |--|--|--
@@ -165,17 +172,20 @@ create(:Person{cd:'555903',xx:'ppppppppppr'})
 |6783|"汽车"|"良"
 
 给Person添加两个属性
+```
 load csv with headers from "file:///test.csv" as df 
 match(n:Person) where n.cd = df.col_one
 set n.nm = df.col_two
 set n.credit = df.col_three
-
+```
 ### 排序
+```
 match(n:Customer)
 return n.name, n.id, n.dob
 order by n.name desc
-
+```
 ### UNWIND
+```
 创建节点
 unwind ['John','Mark','Peter'] as name
 create (n:Customer{name:name})
@@ -187,13 +197,14 @@ create (n:Customer{name:cust.name,id:cust.id,phone:cust.phone})
 unwind [1,2,3] as id
 match (n:Customer) where n.id = id
 delete n
-
+```
 ---
 
 ### String
+```
 match(e:Customer)
 return e.id,upper(e.name) as name, e.dob
-
+```
 ### 聚合
 count三种写法：
 1.  Match (n:people) where  n.age=18   return  count(n)
