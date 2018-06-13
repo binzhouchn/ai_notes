@@ -4,11 +4,12 @@
 
 
 **Neo4j CQL常见的操作有：**
-|S.No|CQL命令/条款|用法
-|--|--|--
-|1|CREATE[创建节点](#创建节点)|创建节点，关系和属性
-|2|CREATE[创建关系1](#创建关系1)|创建关系和属性
-|3|CREATE[创建关系2](#创建关系2)|创建关系和属性
+
+|S.No|CQL命令/条款|用法|
+|--|--|--|
+|1|CREATE[创建节点](#创建节点)|创建节点，关系和属性|
+|2|CREATE[创建关系1](#创建关系1)|创建关系和属性|
+|3|CREATE[创建关系2](#创建关系2)|创建关系和属性|
 |4|CREATE[创建关系3](#创建关系3)|创建关系和属性
 |5|MATCH[匹配](#匹配)|检索有关系点，关系和属性数据
 |6|RETURN[返回](#返回)|返回查询结果
@@ -22,6 +23,7 @@
 |14|[修改graph.db](#修改)|修改备份Neo4j图数据库
 
 **Neo4j CQL常见的函数有：**
+
 |S.No|定制列表功能|用法
 |--|--|--
 |1|String[字符串](#string)|它们用于使用String字面量(UPPER,LOWER,SUBSTRING,REPLACE)
@@ -73,6 +75,7 @@ create (a)-[:sssssssssss]->(b)
 各自创建节点比如shop和phone两个节点，然后导入一个关系的csv文件进行连接
 
 **shop.csv**
+
 |name|cn_name|age|sex
 |--|--|--|--
 |Jack|杰克|22|男
@@ -80,12 +83,14 @@ create (a)-[:sssssssssss]->(b)
 |John|约翰|56|男
 |Mark|马克|99|男
 **phone.csv**
+
 |phone|id_p|
 |--|--
 |1223|0
 |3432|1
 |9011|2
 **关系.csv**
+
 |name|phone
 |--|--
 |Jack|1223
@@ -145,12 +150,14 @@ create(:Person{cd:'92223',xx:'iir'})
 create(:Person{cd:'6783',xx:'rrrr'})
 create(:Person{cd:'555903',xx:'ppppppppppr'})
 **--test.csv:** (注:导入csv的时候会把所有的转成string格式)
+
 |col_one|col_two|col_three
 |--|--|--
 |555903|"桂勇"|"良"
 |92223|"黎明"|"优"
 |1223|"皇家"|"优"
 |6783|"汽车"|"良"
+
 给Person添加两个属性
 load csv with headers from "file:///test.csv" as df 
 match(n:Person) where n.cd = df.col_one
@@ -196,5 +203,5 @@ count三种写法：
 在neo4j的文件夹conf下面，打开文件neo4j.conf,找到一下位置处
 
  dbms.active_database=graph.db，修改数据库名字，例如graph.db -> graph2.db即可。
-```
+
 
