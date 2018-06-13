@@ -213,8 +213,8 @@ count三种写法：
 3.  Match (n:people)  return  count(n.age=18)
 
 ### INDEX
-添加 CREATE INDEX ON :Person(name)
-删除 DROP INDEX ON :Person(name)
+添加 CREATE INDEX ON :Person(name)<br>
+删除 DROP INDEX ON :Person(name)<br>
 查询 call db.indexes()
 
 ### 修改
