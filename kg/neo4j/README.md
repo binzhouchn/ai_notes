@@ -1,6 +1,7 @@
 先把jdk改成1.8然后再进入neo4j的文件夹bin中输入neo4j.bat console撑起网页版服务
 
-在http://localhost:7474/browser/用户名neo4j密码z1234...中输入命令进行一些简单的节点，关系等操作
+http://localhost:7474/browser/ <br>
+用户名neo4j密码z1234...中输入命令进行一些简单的节点，关系等操作
 
 
 **Neo4j CQL常见的操作有：**
