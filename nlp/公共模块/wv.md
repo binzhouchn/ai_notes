@@ -14,6 +14,6 @@ https://blog.csdn.net/mylove0414/article/details/61616617
 参考网址：http://blog.csdn.net/a819825294/article/details/52438625<br>
 参考网址2：http://www.cnblogs.com/pinard/p/7243513.html<br>
 
-## 5.2 GolVe 
+## 2. GolVe 
 
-## 5.3 FastText
+## 3. FastText
