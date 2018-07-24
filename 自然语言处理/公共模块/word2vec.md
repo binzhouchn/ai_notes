@@ -40,9 +40,11 @@ x2 = \[0,0,0,0,1,0,.....]<br>
 
 ## 2. Skip-gram模型
 
+skip-gram模型和cbow模型差不多,互为镜像；明显不同的就是隐藏层，cbow是C个向量加权平均，
+而skip-gram就只有一个，一个个来，如下图所示<br>
 ![w2v](pic/word2vec1.png)
 
-
+[链接地址](https://blog.csdn.net/u010665216/article/details/78721354)
 
 ## 3. Hierarchical Softmax 与 Negative Sampling
 
