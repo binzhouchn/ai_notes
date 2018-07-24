@@ -36,10 +36,10 @@ http://blog.csdn.net/baimafujinji/article/details/51281816
  - CBOW模型
  - Skip-gram模型
  - Hierarchical Softmax 与 Negative Sampling
- - GolVe
  - FastText
+ - GolVe
 
-[word2vec详细笔记](公共模块/wv.md)
+[word2vec详细笔记](公共模块/word2vec.md)
 
 # nlp开源工具
 
