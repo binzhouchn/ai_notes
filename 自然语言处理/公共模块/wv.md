@@ -1,4 +1,4 @@
-# Word Vectors详细笔记
+# word2vec详细笔记
 
 ## 1. Word2Vec
 

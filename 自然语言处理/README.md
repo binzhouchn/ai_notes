@@ -31,13 +31,15 @@ http://blog.csdn.net/baimafujinji/article/details/51281816
 
 ## 4. 信息熵
 
-## 5. Word Vectors
+## 5. word2vec
 
- - Word2Vec
+ - CBOW模型
+ - Skip-gram模型
+ - Hierarchical Softmax 与 Negative Sampling
  - GolVe
  - FastText
 
-[Word Vectors详细笔记](公共模块/wv.md)
+[word2vec详细笔记](公共模块/wv.md)
 
 # nlp开源工具
 
