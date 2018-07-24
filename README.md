@@ -1,2 +1,5 @@
-# ai_notes
-NLP and KG learning
+# 人工智能笔记
+
+[**1. 自然语言处理**](nlp)
+
+[**2. 知识图谱**](kg)
