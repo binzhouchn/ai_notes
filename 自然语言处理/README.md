@@ -39,6 +39,14 @@ http://blog.csdn.net/baimafujinji/article/details/51281816
  - FastText
  - GolVe
 
+GloVe 与 Word2Vec 的区别:
+ - Word2Vec 本质上是一个神经网络；Glove 也利用了反向传播来更新词向量，但是结构要更简单，所以 GloVe 的速度更快
+ - Glove 认为 Word2Vec 对高频词的处理还不够，导致速度慢；GloVe 认为共现矩阵可以解决这个问题
+ - 从效果上看，虽然 GloVe 的训练速度更快，但是词向量的性能在通用性上要弱一些：
+
+FastText 是从 Word2Vec 的 CBOW 模型演化而来的，不同点：
+ - 
+
 [word2vec详细笔记](公共模块/word2vec.md)
 
 # nlp开源工具
