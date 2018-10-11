@@ -45,7 +45,8 @@ GloVe 与 Word2Vec 的区别:
  - 从效果上看，虽然 GloVe 的训练速度更快，但是词向量的性能在通用性上要弱一些：
 
 FastText 是从 Word2Vec 的 CBOW 模型演化而来的，不同点：
- - 
+ - CBOW 的输入是中心词两侧skip_window内的上下文词；FastText 除了上下文词外，还包括这些词的字符级 N-gram 特征
+ 
 
 [word2vec详细笔记](公共模块/word2vec.md)
 
