@@ -31,6 +31,7 @@ http://blog.csdn.net/baimafujinji/article/details/51281816
 
 ## 4. 信息熵
 
+
 ## 5. word2vec
 
  - CBOW模型
